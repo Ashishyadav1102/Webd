@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Secrets & credentials — NEVER commit these
+*.env
+.env
+channels/*_oauth.json
+channels/*_token.json
+
+# Generated output (videos, audio, thumbnails)
+output/
+
+# SQLite database (topic queue)
+topics.db
+scheduler_state.yaml
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/

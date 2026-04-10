@@ -1,0 +1,24 @@
+# Core
+pyyaml>=6.0
+requests>=2.31.0
+schedule>=1.2.0
+
+# LLM APIs
+groq>=0.9.0
+google-generativeai>=0.7.0
+
+# Text-to-Speech
+edge-tts>=6.1.10
+
+# Video / Image processing
+moviepy>=1.0.3
+Pillow>=10.0.0
+
+# YouTube Data API
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.1
+google-api-python-client>=2.100.0
+
+# Optional: HuggingFace image generation
+# huggingface_hub>=0.20.0

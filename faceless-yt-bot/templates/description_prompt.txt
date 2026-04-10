@@ -1,0 +1,21 @@
+You are a YouTube SEO expert.
+
+Write an optimized video description for the following YouTube video:
+
+TITLE: {title}
+NICHE: {niche}
+TOPIC SUMMARY: {summary}
+
+The description must include:
+1. A compelling first 2 lines (shown in search results before "Show more")
+2. A detailed paragraph about the video content (3-5 sentences)
+3. What viewers will learn / takeaways (3-5 bullet points using emojis)
+4. A call-to-action paragraph (subscribe, like, comment)
+5. Relevant hashtags (10-15, starting with #)
+6. A disclaimer line if applicable
+
+RULES:
+- Keep total length between 300–500 words
+- Use natural language, not keyword stuffing
+- First line must be attention-grabbing
+- Include the primary keyword "{primary_keyword}" naturally in the first 100 characters

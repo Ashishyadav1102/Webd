@@ -1,0 +1,47 @@
+# Channel 1 Configuration — Motivation Niche
+channel:
+  name: "Daily Motivation Hub"
+  niche: "motivation"
+  description_template: "🔥 {title} | Motivational content to fuel your day. Subscribe for daily inspiration!"
+  tags:
+    - motivation
+    - inspiration
+    - success
+    - mindset
+    - self-improvement
+  category_id: "26"         # YouTube category: "Howto & Style"
+  language: "en"
+  upload_frequency_days: 1   # Upload every day
+
+llm:
+  provider: "groq"           # "groq" or "gemini"
+  model: "llama3-8b-8192"    # Groq free model
+
+tts:
+  voice: "en-US-GuyNeural"   # Edge-TTS voice name
+  rate: "+5%"                # Speech rate adjustment
+  volume: "+0%"
+
+visuals:
+  source: "pexels"           # "pexels" or "huggingface"
+  search_keywords:           # Fallback keywords if LLM doesn't produce them
+    - "motivation"
+    - "success"
+    - "sunrise"
+    - "mountain climbing"
+    - "achievement"
+  style: "stock_footage"     # "stock_footage" or "ai_images"
+
+thumbnail:
+  bg_color: "#1a1a2e"
+  text_color: "#e94560"
+  accent_color: "#ffffff"
+  font_size: 60
+
+music:
+  folder: "assets/music"
+  volume: 0.08               # Background music volume (0.0 – 1.0)
+
+youtube:
+  credentials_file: "channels/channel1_oauth.json"
+  playlist_id: ""            # Optional: auto-add to playlist

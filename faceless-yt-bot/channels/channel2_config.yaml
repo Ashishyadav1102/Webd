@@ -1,0 +1,48 @@
+# Channel 2 Configuration — Tech Facts Niche
+channel:
+  name: "Tech Facts Daily"
+  niche: "tech facts"
+  description_template: "💻 {title} | Mind-blowing tech facts you didn't know. Subscribe for daily tech insights!"
+  tags:
+    - technology
+    - tech facts
+    - science
+    - AI
+    - innovation
+    - future tech
+  category_id: "28"         # YouTube category: "Science & Technology"
+  language: "en"
+  upload_frequency_days: 2   # Upload every 2 days
+
+llm:
+  provider: "groq"           # "groq" or "gemini"
+  model: "llama3-8b-8192"
+
+tts:
+  voice: "en-GB-RyanNeural"  # Different voice from channel 1
+  rate: "+0%"
+  volume: "+0%"
+
+visuals:
+  source: "pexels"
+  search_keywords:
+    - "technology"
+    - "artificial intelligence"
+    - "computer"
+    - "future"
+    - "innovation"
+  style: "stock_footage"
+
+thumbnail:
+  bg_color: "#0d0d0d"
+  text_color: "#00d4ff"
+  accent_color: "#ffffff"
+  font_size: 58
+
+music:
+  folder: "assets/music"
+  volume: 0.07
+
+youtube:
+  credentials_file: "channels/channel2_oauth.json"
+  playlist_id: ""
