@@ -67,8 +67,9 @@ def run_channel(config_path: str) -> None:
         logger.exception("Pipeline failed for %s: %s", config_path, e)
 
 
-def run_all_due_channels(state: dict) -> None:
+def run_all_due_channels() -> None:
     """Iterate over all channel configs and run whichever are due today."""
+    state = load_state()
     config_files = sorted(CHANNELS_DIR.glob("*_config.yaml"))
     if not config_files:
         logger.warning("No channel config files found in %s", CHANNELS_DIR)
@@ -114,16 +115,14 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    state = load_state()
-
     if args.once:
         logger.info("Running in --once mode.")
-        run_all_due_channels(state)
+        run_all_due_channels()
         return
 
     # Continuous scheduling mode
     logger.info("Scheduling daily runs at %s (server local time).", args.time)
-    schedule.every().day.at(args.time).do(run_all_due_channels, state=state)
+    schedule.every().day.at(args.time).do(run_all_due_channels)
 
     logger.info("Scheduler running. Press Ctrl+C to stop.")
     try:

@@ -254,7 +254,7 @@ def build_video(
             clip = (
                 raw.subclip(0, seg_dur)
                 .resize(height=TARGET_H)
-                .crop(x_center=raw.size[0] / 2, y_center=TARGET_H / 2, width=TARGET_W, height=TARGET_H)
+                .crop(x_center=raw.size[0] / 2, y_center=TARGET_H / 2, width=min(raw.size[0], TARGET_W), height=TARGET_H)
             )
         video_clips.append(clip)
         total_built += seg_dur

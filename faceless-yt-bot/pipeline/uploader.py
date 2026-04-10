@@ -63,12 +63,26 @@ def _get_authenticated_service(credentials_file: str):
     return build(YOUTUBE_API_SERVICE, YOUTUBE_API_VERSION, credentials=creds)
 
 
+def _trim_tags(tags: list) -> list:
+    """Return tags list trimmed so total joined length stays within 500 chars."""
+    result = []
+    total = 0
+    for tag in tags:
+        tag = tag[:100]  # individual tag max 100 chars
+        addition = len(tag) + (1 if result else 0)  # +1 for separator
+        if total + addition > 500:
+            break
+        result.append(tag)
+        total += addition
+    return result
+
+
 def upload_video(
     video_path: str,
     thumbnail_path: str,
     title: str,
     description: str,
-    tags: list[str],
+    tags: list,
     category_id: str,
     credentials_file: str,
     language: str = "en",
@@ -103,7 +117,7 @@ def upload_video(
         "snippet": {
             "title": title[:100],
             "description": description,
-            "tags": tags[:500],
+            "tags": _trim_tags(tags),
             "categoryId": category_id,
             "defaultAudioLanguage": language,
         },

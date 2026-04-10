@@ -76,7 +76,7 @@ def create_thumbnail(
     # ------------------------------------------------------------------
     if background_image_path and os.path.exists(background_image_path):
         bg = Image.open(background_image_path).convert("RGB")
-        bg = bg.resize((THUMB_W, THUMB_H), Image.LANCZOS)
+        bg = bg.resize((THUMB_W, THUMB_H), Image.Resampling.LANCZOS)
         # Darken so text is readable
         bg = ImageEnhance.Brightness(bg).enhance(0.45)
         # Slight blur
@@ -137,7 +137,7 @@ def create_thumbnail(
         try:
             logo = Image.open(channel_logo_path).convert("RGBA")
             logo_size = 100
-            logo = logo.resize((logo_size, logo_size), Image.LANCZOS)
+            logo = logo.resize((logo_size, logo_size), Image.Resampling.LANCZOS)
             bg.paste(logo, (THUMB_W - logo_size - 20, 20), mask=logo)
         except Exception as e:
             logger.warning("Could not overlay channel logo: %s", e)

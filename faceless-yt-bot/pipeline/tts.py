@@ -64,7 +64,7 @@ def text_to_speech(
 
     clean_text = _sanitize_ssml_text(narration)
     if not clean_text:
-        raise ValueError("Narration text is empty after sanitisation.")
+        raise ValueError("Narration text is empty after sanitization.")
 
     logger.info("Generating TTS audio | voice=%s | output=%s", voice, output_path)
     asyncio.run(_generate_audio(clean_text, voice, rate, volume, output_path))

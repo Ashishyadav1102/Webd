@@ -8,6 +8,7 @@ import sqlite3
 import logging
 import os
 from datetime import datetime
+from typing import Optional
 from llm_client import get_llm_client
 
 logger = logging.getLogger(__name__)
@@ -81,7 +82,7 @@ def save_topics(niche: str, topics: list[str]) -> None:
     logger.info("Saved %d new topics for niche '%s'", inserted, niche)
 
 
-def get_next_topic(niche: str) -> str | None:
+def get_next_topic(niche: str) -> Optional[str]:
     """Return the oldest unused topic for the given niche and mark it used."""
     conn = _get_connection()
     row = conn.execute(
